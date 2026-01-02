@@ -1,40 +1,29 @@
-📄 ATS Resume Scorer (AI-Powered)
+🚀📄 ATS RESUME SCORER – AI POWERED APPLICATION 🤖✨
 
-An AI-powered ATS (Applicant Tracking System) Resume Scorer that evaluates resumes in PDF format and provides an ATS score and feedback using Google Gemini API. This project helps users understand how well their resume performs against ATS systems used by recruiters.
+An AI-powered ATS (Applicant Tracking System) Resume Scorer that analyzes resumes in PDF format and generates an ATS compatibility score along with actionable feedback using Google Gemini AI.
+This project helps job seekers understand how well their resumes perform against automated recruitment systems used by companies.
 
-🚀 Features
+✨🌟 KEY FEATURES 🌟✨
 
-📤 Upload resume in PDF format
-
-📄 Extracts text from resumes using PyPDF2
-
-🤖 Evaluates resume using Google Gemini AI
-
+✅ Upload resumes in PDF format
+📄 Extract resume text using PyPDF2
+🤖 AI-based evaluation using Google Gemini
 📊 Generates ATS score (out of 100)
+📝 Provides clear feedback for improvement
+🎨 Clean and responsive web interface
+⚙️ Flask-based backend architecture
 
-📝 Provides concise feedback for improvement
+🛠️💻 TECHNOLOGIES USED 💻🛠️
 
-🌐 Simple and clean HTML, CSS, JavaScript frontend
+🔹 Frontend
+• 🌐 HTML
+• 🎨 CSS
+• ⚡ JavaScript
 
-⚙️ Flask-based backend integration
+🔹 Backend
+• 🐍 Python
+• 🌶️ Flask
+• 📄 PyPDF2
 
-🛠️ Tech Stack
-Frontend
-
-HTML
-
-CSS
-
-JavaScript
-
-Backend
-
-Python
-
-Flask
-
-PyPDF2
-
-AI
-
-Google Gemini API (gemini-1.5-flash)
+🔹 Artificial Intelligence
+• 🤖 Google Gemini API (gemini-1.5-flash)
