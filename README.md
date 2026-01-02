@@ -1,0 +1,1 @@
+An AI-powered ATS (Applicant Tracking System) Resume Scorer that evaluates resumes in PDF format and provides an ATS score and feedback using Google Gemini API. This project helps users understand how well their resume performs against ATS systems used by recruiters.
