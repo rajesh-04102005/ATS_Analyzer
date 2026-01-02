@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Insights</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-900">
+
+    <div class="max-w-4xl mx-auto py-16 px-4">
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-4">
+                ATS Resume Scanner
+            </h1>
+            <p class="text-slate-500 text-lg">Optimizing your career path with Gemini AI analysis.</p>
+        </div>
+
+        <div class="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 mb-10 transition-all hover:shadow-2xl">
+            <form action="/" method="POST" enctype="multipart/form-data" class="space-y-6">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="relative flex items-center justify-center w-full">
+                        <label class="flex flex-col items-center justify-center w-full h-40 border-2 border-slate-300 border-dashed rounded-2xl cursor-pointer bg-slate-50 hover:bg-slate-100 transition-colors">
+                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                <svg class="w-10 h-10 mb-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                                <p class="mb-2 text-sm text-slate-500 font-semibold">Click to upload or drag and drop</p>
+                                <p class="text-xs text-slate-400 uppercase tracking-wider">PDF Only</p>
+                            </div>
+                            <input type="file" name="resume" class="hidden" accept=".pdf" required onchange="this.form.submit()" />
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <button type="submit" class="inline-flex items-center px-8 py-3 font-bold text-white bg-blue-600 rounded-full shadow-lg hover:bg-blue-700 transition-all active:scale-95">
+                        Analyze Now
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        {% if score %}
+        <div class="animate-in fade-in slide-in-from-bottom-4 duration-700">
+            
+            <div class="bg-white rounded-3xl shadow-lg border border-slate-100 overflow-hidden mb-8">
+                <div class="p-8 flex flex-col items-center border-b border-slate-50">
+                    <h2 class="text-sm font-bold text-slate-400 uppercase tracking-[0.2em] mb-4">Final ATS Score</h2>
+                    <div class="relative flex items-center justify-center">
+                        <div class="text-6xl font-black text-blue-600">
+                            {{ score }}<span class="text-2xl text-slate-300">/100</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2">
+                    <div class="p-8 border-r border-slate-50 bg-emerald-50/20">
+                        <div class="flex items-center mb-6">
+                            <div class="p-2 bg-emerald-100 rounded-lg mr-3">
+                                <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800">Strengths</h3>
+                        </div>
+                        <ul class="space-y-4">
+                            {% for pro in pros %}
+                            <li class="flex items-start text-slate-600">
+                                <span class="h-6 w-6 text-emerald-500 mr-2 font-bold">•</span>
+                                {{ pro }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="p-8 bg-rose-50/20">
+                        <div class="flex items-center mb-6">
+                            <div class="p-2 bg-rose-100 rounded-lg mr-3">
+                                <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800">Gap Areas</h3>
+                        </div>
+                        <ul class="space-y-4">
+                            {% for con in cons %}
+                            <li class="flex items-start text-slate-600">
+                                <span class="h-6 w-6 text-rose-500 mr-2 font-bold">•</span>
+                                {{ con }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="/" class="text-blue-600 hover:text-blue-800 font-semibold text-sm underline decoration-2 underline-offset-4">Analyze another resume</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
